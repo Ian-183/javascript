@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notas</title>
+    <title>Promedio de Notas - JavaScript</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <link rel="stylesheet" href="script.js">
-    
+
+    <h1>Calculadora de Promedio de Notas</h1>
+    <button onclick="calcularPromedio()">Ingresar Notas</button>
+
+    <script>
+        function calcularPromedio() {
+            let notas = [];
+            let suma = 0;
+            let cantidadNotas = 5;
+
+            for (let i = 1; i <= cantidadNotas; i++) {
+                let nota = parseFloat(prompt(`Ingrese la nota ${i} (0 a 10):`));
+
+                // Validar que la nota esté en el rango permitido
+                if (nota < 0 || nota > 10 || isNaN(nota)) {
+                    alert("Nota inválida. Debe ser un número entre 0 y 10. Intente nuevamente.");
+                    i--; // Repetir esta nota
+                    continue;
+                }
+
+                notas.push(nota);
+                suma += nota;
+            }
+
+            let promedio = suma / cantidadNotas;
+
+            if (promedio >= 7) {
+                alert(`Promedio: ${promedio.toFixed(2)}\n¡Felicitaciones, pasaste de año!`);
+            } else if (promedio >= 3.5) {
+                alert(`Promedio: ${promedio.toFixed(2)}\n Necesitas recuperar.`);
+            } else {
+                alert(`Promedio: ${promedio.toFixed(2)}\nLo siento, perdiste el semestre.`);
+            }
+        }
+    </script>
+
 </body>
 </html>

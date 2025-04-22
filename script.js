@@ -24,7 +24,7 @@ let promedio = suma / cantidadNotas;
 if(promedio >= 7) {
     console.log(`Promedio: ${promedio.toFixed(2)} - ¡Felicitaciones, pasaste de año!`);
 } else if(promedio >= 3.5) {
-    console.log(`Promedio: ${promedio.toFixed(2)} - Estás suspenso. ¡Necesitas recuperar!`);
+    console.log(`Promedio: ${promedio.toFixed(2)} - Necesitas recuperar`);
 } else {
     console.log(`Promedio: ${promedio.toFixed(2)} - Lo siento, perdiste el semestre.`);
 }
